@@ -15,7 +15,7 @@ case "$1" in
     test -f $TARGET && exit 0
     (test -d c_src/secp256k1 || git clone https://github.com/bitcoin/secp256k1)
 
-    (cd c_src/secp256k1 && git reset --hard 5a91bd768faaa974e00301e662fd8f2aa75a122a &&  ./autogen.sh && ./configure --enable-module-recovery && make)
+    (cd c_src/secp256k1 && git reset --hard 5a91bd768faaa974e00301e662fd8f2aa75a122a &&  ./autogen.sh && ./configure --enable-openssl-tests=no --enable-module-recovery && make)
 	#(cd secp256k1 &&  ./autogen.sh && ./configure --enable-module-recovery && make)
     ;;
 esac
