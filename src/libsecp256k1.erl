@@ -91,6 +91,8 @@ ecdsa_verify(_, _, _) ->
 ecdsa_sign_compact(_, _, _, _) ->
 	not_loaded(?LINE).
 
+-spec ecdsa_recover_compact(binary(), binary(), atom(), integer()) -> {ok, binary()} | {error, string()}.
+
 ecdsa_recover_compact(_, _, _, _) ->
 	not_loaded(?LINE).
 
@@ -114,4 +116,4 @@ init() ->
 % unless there was an unexpected error loading the NIF shared library.
 
 not_loaded(Line) ->
-    exit({not_loaded, [{module, ?MODULE}, {line, Line}]}).
+	erlang:nif_error({not_loaded, [{module, ?MODULE}, {line, Line}]}).
